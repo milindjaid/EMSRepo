@@ -1,0 +1,33 @@
+<form [formGroup]="loginFormGroup" style="text-align: center" class="container">
+
+    <label style="color: blue"> <b> User Name:</b></label>
+    <div>
+    <input type="text" formControlName="userName" >
+    <div *ngIf="loginFormGroup.controls.userName.invalid && (loginFormGroup.controls.userName.dirty||
+    loginFormGroup.controls.userName.touched )">
+    <div *ngIf="loginFormGroup.controls.userName.errors.required"  class="error_msg">
+                User Name is required.
+    </div>    
+    </div>
+    </div>
+    <br>
+    <br>
+    <label style="color: blue"><b>Password: </b></label>
+    <div>
+    <input type="password" formControlName="password" >
+    <div *ngIf="loginFormGroup.controls.password.invalid && (loginFormGroup.controls.password.dirty||
+    loginFormGroup.controls.password.touched )">
+    <div *ngIf="loginFormGroup.controls.password.errors.required" class="error_msg" >
+                Password is required.
+    </div>    
+    </div>
+    </div>
+     <br>
+     <br>
+     <hr style="width: 50%">
+    <button id="Submit" (click)="authencateCredentials(loginFormGroup)" class="registerbtn">Login</button>
+
+    <br>
+     Create an account? <a (click)="NavigateToSignUp()" >Sign up</a>
+</form>
+
